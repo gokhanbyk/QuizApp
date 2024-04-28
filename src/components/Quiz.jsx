@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import QUESTIONS from '../questions.js';
 import quizCompleteImg from '../assets/quiz-complete.png';
+import QuestionTimer from "./QuestionTimer.jsx";
 
 function Quiz() {
   // Answers selected by the user
@@ -33,6 +34,7 @@ function Quiz() {
   return (
     <div id="quiz">
       <div id="question">
+        <QuestionTimer timeout={15000} onTimeout={() => handleSelectAnswer(null)} />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
         <ul id="answers">
           {shuffledAnswers.map((answer) => (
