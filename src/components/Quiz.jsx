@@ -9,7 +9,10 @@ function Quiz() {
   const activeQuestionIndex = userAnswers.length;
 
   function handleSelectAnswer(selectedAnswer) {
-    setUserAnswers(selectedAnswer);
+    // To do not lose old answers
+    setUserAnswers((prevUserAnswers) => {
+      return [...prevUserAnswers, selectedAnswer];
+    });
   }
 
   return (
